@@ -105,5 +105,9 @@
 
   thead>tr>th{
     text-align: center;
-    width: 200px;
+    width: 160px;
+  }
+
+  tbody>tr>td{
+    text-align: center;
   }
