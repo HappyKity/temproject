@@ -25,10 +25,11 @@
               const $tbody = $("#tbody");
               let html = `
               <tr>
-                <td>${list.cno}</td>
-                <td><$ href="read?cno=${list.cno}">${list.name}</a></td>
-                <td>${list.address}</td>
-                <td>${list.tel}</td>
+                <td>${list.bno}</td>
+                <td><$ href="read?cno=${list.bno}">${list.title}</a></td>
+                <td>${list.nickname}</td>
+                <td>${list.date}</td>
+                <td>${list.readconunt}</td>
               </tr>`;
               $tbody.append(html);
             }
@@ -61,9 +62,10 @@
             <thead>
               <tr>
                 <th>number</th>
-                <th>name</th>
-                <th>address</th>
-                <th>phone number</th>
+                <th>title</th>
+                <th>writer</th>
+                <th>date</th>
+                <th>read count</th>
               </tr>
             </thead>
             <tbody id="tbody"></tbody>
