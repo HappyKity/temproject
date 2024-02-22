@@ -19,7 +19,7 @@
         });
 
         $.ajax({
-          url: "http://192.168.0.177:8081/list",
+          url: "http://192.168.0.177:8081/board/list",
           success: function (result) {
             for (let list of result) {
               const $tbody = $("#tbody");
@@ -28,8 +28,8 @@
                 <td>${list.bno}</td>
                 <td><$ href="read?cno=${list.bno}">${list.title}</a></td>
                 <td>${list.nickname}</td>
-                <td>${list.date}</td>
-                <td>${list.readconunt}</td>
+                <td>${list.writeday}</td>
+                <td>${list.readcnt}</td>
               </tr>`;
               $tbody.append(html);
             }
