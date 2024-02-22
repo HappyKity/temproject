@@ -17,30 +17,27 @@
             window.open("https://search.naver.com/search.naver?query=" + encodeURIComponent(keyword), "_blank");
           }
         });
-           $('#submit').on('click', function(e) {
-            e.preventDefault();
-            const params = {
-             nickname : $('#nickname').val(),
-             title : $('#title').val(),
-             content : $('#content').val(),
-             password : $('#password').val()
-            };
-            $.ajax({
-              url : 'http://192.168.0.177:8081/board/write',
-              method : 'post',
-              data : params,
-              success: function(){
-                location.href="list.html";
-              },
-              error : function(er){
-                console.log(er.responseText)
-                alert(er.responseText);
-              }
-            });
-              
-           })
-
-
+        $("#submit").on("click", function (e) {
+          e.preventDefault();
+          const params = {
+            nickname: $("#nickname").val(),
+            title: $("#title").val(),
+            content: $("#content").val(),
+            password: $("#password").val(),
+          };
+          $.ajax({
+            url: "http://192.168.0.177:8081/board/write",
+            method: "post",
+            data: params,
+            success: function () {
+              location.href = "list.html";
+            },
+            error: function (er) {
+              console.log(er.responseText);
+              alert(er.responseText);
+            },
+          });
+        });
       });
     </script>
   </head>
@@ -64,14 +61,14 @@
       <main>
         <aside></aside>
         <section>
-           <form id="frm" enctype="multipart/form-data"> 
-            <input type="file" id="photo" placeholder="프로필을 지정해주세요" name="photo">
-            <input type="text" id="nickname" placeholder="작성자를 입력해주세요" name="nickname">
-            <input type="text" id="title" placeholder="제목을 입력해주세요" name="title">
+          <form id="frm" enctype="multipart/form-data">
+            <input type="file" id="photo" placeholder="프로필을 지정해주세요" name="photo" />
+            <input type="text" id="nickname" placeholder="작성자를 입력해주세요" name="nickname" />
+            <input type="text" id="title" placeholder="제목을 입력해주세요" name="title" />
             <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
-            <input type="password" id="password" placeholder="비밀번호를 입력해주세요" name="password">
+            <input type="password" id="password" placeholder="비밀번호를 입력해주세요" name="password" />
             <button id="submit">작성하기</button>
-           </form>
+          </form>
         </section>
         <aside></aside>
       </main>
