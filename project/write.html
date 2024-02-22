@@ -13,22 +13,29 @@
         $("#btn").on("click", function () {
           let keyword = $("#searchval").val();
           if (keyword.trim() !== "") {
-            // Open a new tab or window with the Naver search URL
+            // 네이버 검색 URL을 포함하여 새 탭 또는 창을 엽니다.
             window.open("https://search.naver.com/search.naver?query=" + encodeURIComponent(keyword), "_blank");
           }
         });
+
         $("#submit").on("click", function (e) {
           e.preventDefault();
-          const params = {
-            nickname: $("#nickname").val(),
-            title: $("#title").val(),
-            content: $("#content").val(),
-            password: $("#password").val(),
-          };
+
+          const formData = new FormData(); // 파일 업로드를 처리할 FormData 객체 생성
+
+          // 폼 데이터 추가
+          formData.append("photo", $("#photo")[0].files[0]);
+          formData.append("nickname", $("#nickname").val());
+          formData.append("title", $("#title").val());
+          formData.append("content", $("#content").val());
+          formData.append("password", $("#password").val());
+
           $.ajax({
             url: "http://192.168.0.177:8081/board/write",
             method: "post",
-            data: params,
+            data: formData,
+            contentType: false, // 중요: contentType 헤더를 추가하지 않도록 설정
+            processData: false, // 중요: 데이터를 처리하지 않도록 설정
             success: function () {
               location.href = "list.html";
             },
@@ -62,12 +69,52 @@
         <aside></aside>
         <section>
           <form id="frm" enctype="multipart/form-data">
-            <input type="file" id="photo" placeholder="프로필을 지정해주세요" name="photo" />
-            <input type="text" id="nickname" placeholder="작성자를 입력해주세요" name="nickname" />
-            <input type="text" id="title" placeholder="제목을 입력해주세요" name="title" />
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
-            <input type="password" id="password" placeholder="비밀번호를 입력해주세요" name="password" />
-            <button id="submit">작성하기</button>
+            <table class="table">
+              <tr>
+                <td id="readtd">
+                  <div id="resultval">
+                    <div id="resulttitle">프로필</div>
+                    <div id="resultcontent">
+                      <input type="file" id="photo" placeholder="프로필을 지정해주세요" name="photo" />
+                    </div>
+                  </div>
+                </td>
+                <td id="readtd">
+                  <div id="resultval">
+                    <div id="resulttitle">제목</div>
+                    <div id="resultcontent">
+                      <input type="text" id="title" placeholder="제목을 입력해주세요" name="title" />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td id="readtd">
+                  <div id="resultval">
+                    <div id="resulttitle">작성자</div>
+                    <div id="resultcontent">
+                      <input type="text" id="nickname" placeholder="작성자를 입력해주세요" name="nickname" />
+                    </div>
+                  </div>
+                </td>
+                <td id="readtd">
+                  <div id="resultval">
+                    <div id="resulttitle">비밀번호</div>
+                    <div id="resultcontent">
+                      <input type="password" id="password" placeholder="비밀번호를 입력해주세요" name="password" />
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <textarea name="content" id="content" cols="100" rows="10" placeholder="내용을 입력해주세요"></textarea>
+                </td>
+              </tr>
+            </table>
+            <div class="d-grid">
+              <button class="btn btn-dark btn-block" id="submit">작성하기</button>
+            </div>
           </form>
         </section>
         <aside></aside>

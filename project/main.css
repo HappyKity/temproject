@@ -22,7 +22,7 @@
   
   /* header, footer에 외곽선을 */
   header, footer {
-    border : 1px solid red;
+    border : 1px solid black;
   }
   
   /* aside의 높이, 너비, 배경색 지정*/
@@ -110,4 +110,35 @@
 
   tbody>tr>td{
     text-align: center;
+  }
+  #readtd{
+    width: 400px;
+  }
+
+  #resultval{
+    border: 1px solid black;
+    width: 350px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px lightgray;
+    height: 80px;
+  }
+  #resulttitle{
+    border: 1px solid black;
+    width: 300px;
+    margin: 5px auto;
+    border-radius: 10px;
+    background-color: #777;
+    color: white;
+  }
+  #writemain{
+    width: 800px;
+    text-align: center;
+
+  }
+  #writecontent{
+    border: 1px solid black;
+    width: 750px;
+    height: 100px;
+
   }

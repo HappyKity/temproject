@@ -68,28 +68,44 @@
         <section>
           <table class="table">
             <tr>
-              <td colspan="2">
+              <td colspan="2" id="readtd">
                 <img id="photo" />
               </td>
             </tr>
             <tr>
-              <td>
-                제목 :
-                <p id="title"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">제목</div>
+                  <div id="resultcontent">
+                    <p id="title"></p>
+                  </div>
+                </div>
               </td>
-              <td>
-                글쓴이 :
-                <p id="nickname"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">작성자</div>
+                  <div id="resultcontent">
+                    <p id="nickname"></p>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
-              <td>
-                작성일 :
-                <p id="writeday"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">작성일</div>
+                  <div id="resultcontent">
+                    <p id="writeday"></p>
+                  </div>
+                </div>
               </td>
-              <td>
-                조회수 :
-                <p id="readcnt"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">조회수</div>
+                  <div id="resultcontent">
+                    <p id="readcnt"></p>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
@@ -98,7 +114,9 @@
               </td>
             </tr>
           </table>
-          <button class="btn btn-primary" id="update">변경 및 삭제</button>
+          <div class="d-grid">
+            <button class="btn btn-dark btn-block" id="update">변경 및 삭제</button>
+          </div>
         </section>
         <aside></aside>
       </main>

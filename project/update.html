@@ -105,32 +105,54 @@
         <section>
           <table class="table">
             <tr>
-              <td colspan="2">
+              <td colspan="3">
                 <img id="photo" />
               </td>
             </tr>
             <tr>
-              <td>
-                제목 :
-                <input type="text" id="title" />
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">제목</div>
+                  <div id="resultcontent">
+                    <input type="text" id="title" />
+                  </div>
+                </div>
               </td>
-              <td>
-                글쓴이 :
-                <p id="nickname"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">작성자</div>
+                  <div id="resultcontent">
+                    <p id="nickname"></p>
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
-              <td>
-                작성일 :
-                <p id="writeday"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">작성일</div>
+                  <div id="resultcontent">
+                    <p id="writeday"></p>
+                  </div>
+                </div>
               </td>
-              <td>
-                조회수 :
-                <p id="readcnt"></p>
+              <td id="readtd">
+                <div id="resultval">
+                  <div id="resulttitle">조회수</div>
+                  <div id="resultcontent">
+                    <p id="readcnt"></p>
+                  </div>
+                </div>
               </td>
-              <td>
-                비밀번호 :
-                <input type="text" id="password" />
+            </tr>
+            <tr>
+              <td id="readtd" colspan="3">
+                <div id="resultval">
+                  <div id="resulttitle">비밀번호</div>
+                  <div id="resultcontent">
+                    <input type="password" id="password" />
+                  </div>
+                </div>
               </td>
             </tr>
             <tr>
@@ -139,8 +161,12 @@
               </td>
             </tr>
           </table>
-          <button class="btn btn-primary" id="update">변경하기</button>
-          <button class="btn btn-danger" id="delete">삭제하기</button>
+          <div class="d-grid">
+            <button class="btn btn-primary btn-block" id="update">변경하기</button>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-danger btn-block" id="delete">삭제하기</button>
+          </div>
         </section>
         <aside></aside>
       </main>
