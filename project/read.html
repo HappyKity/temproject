@@ -19,30 +19,30 @@
         });
 
         const searchparams = new URLSearchParams(location.search);
-        const bno = searchparams.get('bno')
+        const bno = searchparams.get("bno");
 
-        if(bno===null){
-          location.href='list.html';
+        if (bno === null) {
+          location.href = "list.html";
         }
 
-        const param={bno:bno}
+        const param = { bno: bno };
 
         $.ajax({
           url: "http://192.168.0.177:8081/board/read",
-          data : param,
+          data: param,
           success: function (result) {
-            $('#title').text(result.title);
-            $('#nickname').text(result.nickname);
-            $('#content').text(result.content);
-            $('#readcnt').text(result.readcnt);
-            $('#writeday').text(result.writeday);
-            $('#photo').attr('src', result.photo)
+            $("#title").text(result.title);
+            $("#nickname").text(result.nickname);
+            $("#content").text(result.content);
+            $("#readcnt").text(result.readcnt);
+            $("#writeday").text(result.writeday);
+            $("#photo").attr("src", result.photo);
           },
         });
 
-        $('#update').on('click', function(){
-            location.href='write.html';
-        })
+        $("#update").on("click", function () {
+          location.href = "update.html?bno=" + bno;
+        });
       });
     </script>
   </head>
@@ -68,22 +68,34 @@
         <section>
           <table class="table">
             <tr>
-                <td colspan="2">
-                    <img id="photo">
-                </td>
+              <td colspan="2">
+                <img id="photo" />
+              </td>
             </tr>
             <tr>
-                <td>제목 : <p id="title"></p></td>
-                <td >글쓴이 : <p id="nickname"></p></td>
+              <td>
+                제목 :
+                <p id="title"></p>
+              </td>
+              <td>
+                글쓴이 :
+                <p id="nickname"></p>
+              </td>
             </tr>
             <tr>
-                <td>작성일 : <p id="writeday"></p></td>
-                <td>조회수 : <p id="readcnt"></p></td>
+              <td>
+                작성일 :
+                <p id="writeday"></p>
+              </td>
+              <td>
+                조회수 :
+                <p id="readcnt"></p>
+              </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <textarea id="content" cols="100" rows="10"></textarea>
-                </td>
+              <td colspan="2">
+                <textarea id="content" cols="100" rows="10"></textarea>
+              </td>
             </tr>
           </table>
           <button class="btn btn-primary" id="update">변경 및 삭제</button>
